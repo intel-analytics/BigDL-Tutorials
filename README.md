@@ -42,7 +42,7 @@ export PYSPARK_DRIVER_PYTHON_OPTS="notebook --notebook-dir=./ --ip=* --no-browse
 source ${BigDL_HOME}/bin/bigdl.sh
 ${SPARK_HOME}/bin/pyspark \
   --master local[4] \
-  --driver-memory 10g \
+  --driver-memory 4g \
   --properties-file ${BigDL_HOME}/conf/spark-bigdl.conf \
   --py-files ${BigDL_HOME}/lib/bigdl-0.1.0-python-api.zip \
   --jars ${BigDL_HOME}/lib/bigdl-SPARK_2.1-0.1.0-jar-with-dependencies.jar \
