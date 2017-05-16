@@ -39,10 +39,8 @@ BigDL_HOME= where the downloaded file unzipped
 export PYSPARK_DRIVER_PYTHON=jupyter
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook --notebook-dir=./ --ip=* --no-browser"
 
-```
-```
-$ source ${BigDL_HOME}/bin/bigdl.sh
-$ ${SPARK_HOME}/bin/pyspark \
+source ${BigDL_HOME}/bin/bigdl.sh
+${SPARK_HOME}/bin/pyspark \
   --master local[4] \
   --driver-memory 10g \
   --properties-file ${BigDL_HOME}/conf/spark-bigdl.conf \
@@ -52,9 +50,8 @@ $ ${SPARK_HOME}/bin/pyspark \
   --conf spark.executor.extraClassPath=${BigDL_HOME}/lib/bigdl-SPARK_2.1-0.1.0-jar-with-dependencies.jar
 ```
 
-* Put start_notebook.sh in home directory and execute it in bash.
-    * the root directory in your notebook view is the directory where you execute the script start_notebook.
+* Execute start_notebook.sh in bash, it will start a jupyter notebook service and output the url to access
 ## Run Demo
 * Open a browser - Suggest Chrome or Firefox or Safari
-* Access notebook client at address http://localhost:8888, open the example ipynb files and execute.
+* Access notebook client at address http://localhost:8888/?token=xxxx (which is in the output of the start_notebook.sh), open the example ipynb files and execute.
 
