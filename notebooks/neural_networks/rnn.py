@@ -25,19 +25,17 @@ display_step = 10
 
 # Network Parameters
 n_input = 28 # MNIST data input (img shape: 28*28)
-
-n_steps = 28 # timesteps
 n_hidden = 128 # hidden layer num of features
 n_classes = 10 # MNIST total classes (0-9 digits)
 
 def build_model(input_size, hidden_size, output_size):
     model = Sequential()
     recurrent = Recurrent()
-    recurrent.add(RnnCell(input_size, n_hidden, Tanh()))
-    model.add(InferReshape([-1, n_input], True))
+    recurrent.add(RnnCell(input_size, hidden_size, Tanh()))
+    model.add(InferReshape([-1, input_size], True))
     model.add(recurrent)
-    model.add(Select(2, 28))
-    model.add(Linear(n_hidden, output_size))
+    model.add(Select(2, -1))
+    model.add(Linear(hidden_size, output_size))
     return model
 rnn_model = build_model(n_input, n_hidden, n_classes)
 #criterion = TimeDistributedCriterion(CrossEntropyCriterion())
