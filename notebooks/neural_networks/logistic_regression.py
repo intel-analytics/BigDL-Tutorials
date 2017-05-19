@@ -7,10 +7,14 @@ from util.common import *
 from dataset.transformer import *
 from dataset import mnist
 from utils import get_mnist
+from pylab import *
+
+sc = SparkContext(appName="logistic_regression", conf=create_spark_conf())
+
 init_engine()
 
 # Get and store MNIST into RDD of Sample, please edit the "mnist_path" accordingly.
-mnist_path = "~/Desktop/spark/mnist"
+mnist_path = "./datasets/mnist/"
 
 (train_data, test_data) = get_mnist(sc, mnist_path)
 print train_data.count()
@@ -37,14 +41,12 @@ def logistic_regression(n_input, n_classes):
     
 model = logistic_regression(n_input, n_classes)
 # Create an Optimizer
-state = {"learningRate": learning_rate}
 
 optimizer = Optimizer(
     model=model,
     training_rdd=train_data,
     criterion=ClassNLLCriterion(),
-    optim_method="SGD",
-    state=state,
+    optim_method=SGD(learningrate=0.01, learningrate_decay=0.0002),
     end_trigger=MaxEpoch(training_epochs),
     batch_size=batch_size)
 # Start to train

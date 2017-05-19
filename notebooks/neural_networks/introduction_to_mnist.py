@@ -3,8 +3,11 @@
 import pandas
 from dataset import mnist
 from util.common import *
+from pylab import *
+
+sc = SparkContext(appName="introduction_to_mnist", conf=create_spark_conf())
 init_engine()
-mnist_path = "datasets/mnist"
+mnist_path = "./datasets/mnist"
 (train_images, train_labels) = mnist.read_data_sets(mnist_path, "train")
 (test_images, test_labels) = mnist.read_data_sets(mnist_path, "test")
 print train_images.shape
