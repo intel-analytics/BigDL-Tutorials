@@ -7,9 +7,12 @@ from util.common import *
 from dataset.transformer import *
 from dataset import mnist
 from utils import get_mnist
+from pylab import *
+
+sc = SparkContext(appName="lstm", conf=create_spark_conf())
 init_engine()
 # Get and store MNIST into RDD of Sample, please edit the "mnist_path" accordingly.
-mnist_path = "datasets/mnist"
+mnist_path = "./datasets/mnist"
 
 (train_data, test_data) = get_mnist(sc, mnist_path)
 train_data = train_data.map(lambda s: Sample.from_ndarray(np.resize(s.features, (28, 28)), s.label))
@@ -41,13 +44,11 @@ rnn_model = build_model(n_input, n_hidden, n_classes)
 #criterion = TimeDistributedCriterion(CrossEntropyCriterion())
 criterion = CrossEntropyCriterion()
 
-state = {"learningRate": learning_rate}
 optimizer = Optimizer(
     model=rnn_model,
     training_rdd=train_data,
     criterion=criterion,
-    optim_method="adam",
-    state=state,
+    optim_method=Adam(),
     end_trigger=MaxEpoch(5),
     batch_size=batch_size)
 # Set the validation logic

@@ -7,6 +7,8 @@ from util.common import *
 from util.common import Sample
 from dataset.transformer import *
 import unittest
+
+sc = SparkContext(appName="linear_regression", conf=create_spark_conf())
 init_engine()
 
 FEATURES_DIM = 2
@@ -35,14 +37,12 @@ def linear_regression(n_input, n_output):
 
 model = linear_regression(n_input, n_output)
 # Create an Optimizer
-state = {"learningRate": learning_rate}
 
 optimizer = Optimizer(
     model=model,
     training_rdd=rdd_train,
     criterion=MSECriterion(),
-    optim_method="SGD",
-    state=state,
+    optim_method=SGD(learningrate=0.01, learningrate_decay=0.0002),
     end_trigger=MaxEpoch(training_epochs),
     batch_size=batch_size)
 # Start to train

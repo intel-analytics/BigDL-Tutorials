@@ -7,12 +7,15 @@ from util.common import *
 from dataset.transformer import *
 from dataset import mnist
 from utils import get_mnist
+from pylab import *
+
+sc = SparkContext(appName="cnn", conf=create_spark_conf())
 init_engine()
 
 # * prepare train and validation samples
 #
 # Get and store MNIST into RDD of Sample, please edit the "mnist_path" accordingly.
-mnist_path = "datasets/mnist"
+mnist_path = "./datasets/mnist"
 
 (train_data, test_data) = get_mnist(sc, mnist_path)
 print train_data.count()
@@ -38,15 +41,12 @@ def build_model(class_num):
 
 lenet_model = build_model(10)
 # Create an Optimizer
-state = {"learningRate": 0.4,
-         "learningRateDecay": 0.0002}
 
 optimizer = Optimizer(
     model=lenet_model,
     training_rdd=train_data,
     criterion=ClassNLLCriterion(),
-    optim_method="SGD",
-    state=state,
+    optim_method=SGD(learningrate=0.01, learningrate_decay=0.0002),
     end_trigger=MaxEpoch(20),
     batch_size=2048)
 # Set the validation logic

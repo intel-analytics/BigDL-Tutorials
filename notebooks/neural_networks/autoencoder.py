@@ -8,10 +8,11 @@ from util.common import *
 from dataset.transformer import *
 from dataset import mnist
 from utils import get_mnist
+sc = SparkContext(appName="autoencoder", conf=create_spark_conf())
 init_engine()
 
 # Get and store MNIST into RDD of Sample, please edit the "mnist_path" accordingly.
-mnist_path = "datasets/mnist"
+mnist_path = "./datasets/mnist"
 
 (train_data, test_data) = get_mnist(sc, mnist_path)
 train_data = train_data.map(lambda sample:
@@ -47,14 +48,11 @@ def build_autoencoder(n_input, n_hidden):
 model = build_autoencoder(n_input, n_hidden)
 
 # Create an Optimizer
-state = {"learningRate": 0.01, "weightDecay": 0.0, "momentum": 0.9, "dampening": 0.0}
-
 optimizer = Optimizer(
     model=model,
     training_rdd=train_data,
     criterion=MSECriterion(),
-    optim_method="Adagrad",
-    state=state,
+    optim_method=Adagrad(learningrate=0.01, learningrate_decay=0.0002),
     end_trigger=MaxEpoch(2),
     batch_size=batch_size)
 
