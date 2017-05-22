@@ -7,7 +7,7 @@
 
 # In[1]:
 
-get_ipython().magic(u'pylab inline')
+# inline
 
 import pandas
 import datetime as dt
@@ -108,7 +108,10 @@ print "saving logs to ",app_name
 
 # In[6]:
 
-get_ipython().run_cell_magic(u'time', u'', u'# Boot training process\ntrained_model = optimizer.optimize()\nprint "Optimization Done."')
+#time
+# Boot training process
+trained_model = optimizer.optimize()
+print "Optimization Done."
 
 
 # In[7]:
@@ -121,7 +124,13 @@ def map_groundtruth_label(l):
 
 # In[8]:
 
-get_ipython().run_cell_magic(u'time', u'', u"predictions = trained_model.predict(test_data)\nimshow(np.column_stack([np.array(s.features).reshape(28,28) for s in test_data.take(8)]),cmap='gray'); axis('off')\nprint 'Ground Truth labels:'\nprint ', '.join(str(map_groundtruth_label(s.label)) for s in test_data.take(8))\nprint 'Predicted labels:'\nprint ', '.join(str(map_predict_label(s)) for s in predictions.take(8))")
+#time
+predictions = trained_model.predict(test_data)
+imshow(np.column_stack([np.array(s.features).reshape(28,28) for s in test_data.take(8)]),cmap='gray'); axis('off')
+print 'Ground Truth labels:'
+print ', '.join(str(map_groundtruth_label(s.label)) for s in test_data.take(8))
+print 'Predicted labels:'
+print ', '.join(str(map_predict_label(s)) for s in predictions.take(8))
 
 
 # In[9]:
