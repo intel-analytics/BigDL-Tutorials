@@ -21,7 +21,7 @@ A step-by-step introduction to data science based on Apache Spark and BigDL fram
 ### Environment
 
 + [Mac OS](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupMac.md) / [Linux](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupLinux.md)
-+ Python 2.7
++ Python 2.7 (Required python libraries: numpy, scipy, pandas, scikit-learn, matplotlib. You may want to use [pip](https://pip.pypa.io/en/stable/) to install these packages.)
 + [Apache Spark 2.1.0](http://spark.apache.org/docs/2.1.0/)
 + [Jupyter Notebook 4.1](http://jupyter.org/install.html)
 + BigDL(download [linux64](https://drive.google.com/file/d/0B7WbKES2D6AxZkEwNVpsMFNVVlU/view?usp=sharing), [mac](https://drive.google.com/file/d/0B7WbKES2D6AxTDJaaUdlRVFRMFU/view?usp=sharing))
