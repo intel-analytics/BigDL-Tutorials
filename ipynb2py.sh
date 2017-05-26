@@ -4,7 +4,7 @@
 ## Usage ################################
 # ./ipynb2py <file-name without extension>
 # Example:
-# ipynb2py rnn
+# ./ipynb2py.sh notebooks/neural_networks/rnn
 #########################################
 
 if [ $# -ne "1" ]; then
