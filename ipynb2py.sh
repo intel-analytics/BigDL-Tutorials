@@ -4,13 +4,13 @@
 ## Usage ################################
 # ./ipynb2py <file-name without extension>
 # Example:
-# ipynb2py rnn
+# ipynb2py notebooks/neural_networks/rnn
 #########################################
 
 if [ $# -ne "1" ]; then
     echo "Usage: ./nb2script <file-name without extension>"
 else
-	cp $1.ipynb $1.tmp.ipynb
+    cp $1.ipynb $1.tmp.ipynb
     sed -i 's/%%/#/' $1.tmp.ipynb
     sed -i 's/%pylab/#/' $1.tmp.ipynb
 
