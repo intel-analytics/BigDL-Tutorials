@@ -1,6 +1,6 @@
-# Data Science on Apache Spark
+# Deep Leaning Tutorials on Apache Spark using BigDL
 
-A step-by-step introduction to data science based on Apache Spark and BigDL framework. This tutorial is inspired by [Apache Spark examples](http://spark.apache.org/examples.html) and [Tensorflow tutorials](https://github.com/nlintz/TensorFlow-Tutorials).
+Step-by-step Leaning Tutorials on Apache Spark using [BigDL](https://github.com/intel-analytics/BigDL/). The tutorials are inspired by [Apache Spark examples](http://spark.apache.org/examples.html), the [Theano Tutorials](https://github.com/Newmu/Theano-Tutorials) and the [Tensorflow tutorials](https://github.com/nlintz/TensorFlow-Tutorials).
 
 ### Topics
 1. [RDD](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/spark_basics/RDD.ipynb) 
