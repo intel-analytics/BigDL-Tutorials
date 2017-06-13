@@ -24,7 +24,7 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 + Python 2.7 (Required python libraries: numpy, scipy, pandas, scikit-learn, matplotlib. You may want to use [pip](https://pip.pypa.io/en/stable/) to install these packages.)
 + [Apache Spark 2.1.0](http://spark.apache.org/docs/2.1.0/)
 + [Jupyter Notebook 4.1](http://jupyter.org/install.html)
-+ BigDL(download [linux64](https://drive.google.com/file/d/0B7WbKES2D6AxZkEwNVpsMFNVVlU/view?usp=sharing), [mac](https://drive.google.com/file/d/0B7WbKES2D6AxTDJaaUdlRVFRMFU/view?usp=sharing))
++ BigDL 0.1.1(download [linux64](https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-2.1.0-scala-2.11.8-linux64/0.1.1/dist-spark-2.1.0-scala-2.11.8-linux64-0.1.1-dist.zip), [mac](https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-2.1.0-scala-2.11.8-mac/0.1.1/dist-spark-2.1.0-scala-2.11.8-mac-0.1.1-dist.zip))
 
 ### Start Jupyter Server
 
