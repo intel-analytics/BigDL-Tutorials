@@ -44,10 +44,10 @@ ${SPARK_HOME}/bin/pyspark \
   --master local[4] \
   --driver-memory 4g \
   --properties-file ${BigDL_HOME}/conf/spark-bigdl.conf \
-  --py-files ${BigDL_HOME}/lib/bigdl-0.1.0-python-api.zip \
-  --jars ${BigDL_HOME}/lib/bigdl-SPARK_2.1-0.1.0-jar-with-dependencies.jar \
-  --conf spark.driver.extraClassPath=${BigDL_HOME}/lib/bigdl-SPARK_2.1-0.1.0-jar-with-dependencies.jar \
-  --conf spark.executor.extraClassPath=${BigDL_HOME}/lib/bigdl-SPARK_2.1-0.1.0-jar-with-dependencies.jar
+  --py-files ${BigDL_HOME}/lib/bigdl-0.1.1-python-api.zip \
+  --jars ${BigDL_HOME}/lib/bigdl-SPARK_2.1-0.1.1-jar-with-dependencies.jar \
+  --conf spark.driver.extraClassPath=${BigDL_HOME}/lib/bigdl-SPARK_2.1-0.1.1-jar-with-dependencies.jar \
+  --conf spark.executor.extraClassPath=${BigDL_HOME}/lib/bigdl-SPARK_2.1-0.1.1-jar-with-dependencies.jar
 ```
 
 * Execute start_notebook.sh in bash, it will start a jupyter notebook service and output the url to access
