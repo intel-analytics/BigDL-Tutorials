@@ -94,3 +94,10 @@ metastore_db/
 
 # Download files
 datasets/
+
+# IDEA files
+.idea/
+target/
+*.iml
+*.pyc
+*.log
