@@ -28,6 +28,7 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 
 ### Start Jupyter Server
 
+* Download BigDL 0.1.1([linux64](https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-2.1.0-scala-2.11.8-linux64/0.1.1/dist-spark-2.1.0-scala-2.11.8-linux64-0.1.1-dist.zip), [mac](https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-2.1.0-scala-2.11.8-mac/0.1.1/dist-spark-2.1.0-scala-2.11.8-mac-0.1.1-dist.zip)) and unzip file.
 * Create start_notebook.sh, copy and paste the contents below, and edit SPARK_HOME, BigDL_HOME accordingly.
 ```bash
 #!/bin/bash
