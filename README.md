@@ -24,11 +24,11 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 + Python 2.7 (Required python libraries: numpy, scipy, pandas, scikit-learn, matplotlib. You may want to use [pip](https://pip.pypa.io/en/stable/) to install these packages.)
 + [Apache Spark 2.1.0](http://spark.apache.org/docs/2.1.0/)
 + [Jupyter Notebook 4.1](http://jupyter.org/install.html)
-+ BigDL 0.1.1(download [linux64](https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-2.1.0-scala-2.11.8-linux64/0.1.1/dist-spark-2.1.0-scala-2.11.8-linux64-0.1.1-dist.zip), [mac](https://oss.sonatype.org/content/groups/public/com/intel/analytics/bigdl/dist-spark-2.1.0-scala-2.11.8-mac/0.1.1/dist-spark-2.1.0-scala-2.11.8-mac-0.1.1-dist.zip))
++ BigDL 0.2.0(download [linux64](https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-2.1.0-scala-2.11.8-linux64/0.2.0/dist-spark-2.1.0-scala-2.11.8-linux64-0.2.0-dist.zip), [mac](https://oss.sonatype.org/content/groups/public/com/intel/analytics/bigdl/dist-spark-2.1.0-scala-2.11.8-mac/0.2.0/dist-spark-2.1.0-scala-2.11.8-mac-0.2.0-dist.zip))
 
 ### Start Jupyter Server
 
-* Download BigDL 0.1.1([linux64](https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-2.1.0-scala-2.11.8-linux64/0.1.1/dist-spark-2.1.0-scala-2.11.8-linux64-0.1.1-dist.zip), [mac](https://oss.sonatype.org/content/groups/public/com/intel/analytics/bigdl/dist-spark-2.1.0-scala-2.11.8-mac/0.1.1/dist-spark-2.1.0-scala-2.11.8-mac-0.1.1-dist.zip)) and unzip file.
+* Download BigDL 0.2.0([linux64](https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-2.1.0-scala-2.11.8-linux64/0.2.0/dist-spark-2.1.0-scala-2.11.8-linux64-0.2.0-dist.zip), [mac](https://oss.sonatype.org/content/groups/public/com/intel/analytics/bigdl/dist-spark-2.1.0-scala-2.11.8-mac/0.2.0/dist-spark-2.1.0-scala-2.11.8-mac-0.2.0-dist.zip)) and unzip file.
 * Create start_notebook.sh, copy and paste the contents below. Edit SPARK_HOME as the folder where you download spark. Set BigDL_HOME to the folder where you unzip in last step. 
 ```bash
 #!/bin/bash
@@ -37,21 +37,29 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 SPARK_HOME= where the downloaded spark
 BigDL_HOME= where the downloaded file unzipped
 
-export PYSPARK_DRIVER_PYTHON=jupyter
-export PYSPARK_DRIVER_PYTHON_OPTS="notebook --notebook-dir=./ --ip=* --no-browser"
+export PYSPARK_DRIVER_PYTHON=${BigDL_HOME}/pyspark/python_package/venv/bin/jupyter
+export PYSPARK_DRIVER_PYTHON_OPTS="notebook --allow-root --notebook-dir=~/BigDL --ip=* --no-browser"
+#export PYSPARK_PYTHON=${BigDL_HOME}/pyspark/python_package/venv/bin/python
+export PYSPARK_PYTHON=/usr/bin/python
 
-source ${BigDL_HOME}/bin/bigdl.sh
+export VERSION=0.2.0-SNAPSHOT
+export PYTHON_API_PATH=${BigDL_HOME}/dist/lib/bigdl-${VERSION}-python-api.zip
+export BigDL_JAR_PATH=${BigDL_HOME}/dist/lib/bigdl-${VERSION}-jar-with-dependencies.jar
+export PYTHONPATH=${PYTHON_API_PATH}:$PYTHONPATH
+
 ${SPARK_HOME}/bin/pyspark \
   --master local[4] \
   --driver-memory 4g \
   --properties-file ${BigDL_HOME}/conf/spark-bigdl.conf \
-  --py-files ${BigDL_HOME}/lib/bigdl-0.1.1-python-api.zip \
-  --jars ${BigDL_HOME}/lib/bigdl-0.1.1-jar-with-dependencies.jar \
-  --conf spark.driver.extraClassPath=${BigDL_HOME}/lib/bigdl-0.1.1-jar-with-dependencies.jar \
-  --conf spark.executor.extraClassPath=${BigDL_HOME}/lib/bigdl-0.1.1-jar-with-dependencies.jar
+  --py-files ${PYTHON_API_PATH} \
+  --jars  ${BigDL_JAR_PATH} \
+  --conf spark.driver.extraClassPath=${BigDL_JAR_PATH} \
+  --conf spark.executor.extraClassPath=bigdl-${VERSION}-jar-with-dependencies.jar
 ```
 
 * Execute start_notebook.sh in bash, it will start a jupyter notebook service and output the url to access
+* Go to the url above, you should see the homefolder of jupyter(in the case above, it should be the ~/BigDL directory, which is setted in PYSPARK_DRIVER_PYTHON_OPTS)
+* Some times you can only read and write the file in jupyter, but not able to run the code. In this case, you may need putty to open a network tunnel.
 ## Run Demo
 * Open a browser - Suggest Chrome or Firefox or Safari
 * Access notebook client at address http://localhost:8888/?token=xxxx (which is in the output of the start_notebook.sh), open the example ipynb files and execute.
