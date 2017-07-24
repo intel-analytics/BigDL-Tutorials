@@ -33,7 +33,7 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 ```bash
 #!/bin/bash
 
-#setup pathes
+# setup pathes, please use absolute path
 SPARK_HOME= where the downloaded spark
 BigDL_HOME= where the downloaded file unzipped
 
