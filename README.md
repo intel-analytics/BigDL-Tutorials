@@ -36,7 +36,8 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 # setup pathes, please use absolute path
 SPARK_HOME= where the downloaded spark
 BigDL_HOME= where the downloaded file unzipped
-
+PYTHON_API_ZIP_PATH=${BigDL_HOME}/lib/bigdl-${VERSION}-python-api.zip
+export PYTHONPATH=${PYTHON_API_ZIP_PATH}:$PYTHONPATH
 export PYSPARK_DRIVER_PYTHON=jupyter
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook --notebook-dir=./ --ip=* --no-browser"
 VERSION=0.2.0
@@ -45,7 +46,7 @@ ${SPARK_HOME}/bin/pyspark \
   --master local[4] \
   --driver-memory 4g \
   --properties-file ${BigDL_HOME}/conf/spark-bigdl.conf \
-  --py-files ${BigDL_HOME}/lib/bigdl-${VERSION}-python-api.zip \
+  --py-files ${PYTHON_API_ZIP_PATH} \
   --jars ${BigDL_HOME}/lib/bigdl-SPARK_2.1-${VERSION}-jar-with-dependencies.jar \
   --conf spark.driver.extraClassPath=${BigDL_HOME}/lib/bigdl-SPARK_2.1-${VERSION}-jar-with-dependencies.jar \
   --conf spark.executor.extraClassPath=${BigDL_HOME}/lib/bigdl-SPARK_2.1-${VERSION}-jar-with-dependencies.jar
