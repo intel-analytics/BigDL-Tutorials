@@ -19,41 +19,20 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 14. [Auto-encoder](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/autoencoder.ipynb)
 
 ### Environment
-
-+ [Mac OS](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupMac.md) / [Linux](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupLinux.md)
-+ Python 2.7 (Required python libraries: numpy, scipy, pandas, scikit-learn, matplotlib. You may want to use [pip](https://pip.pypa.io/en/stable/) to install these packages.)
-+ [Apache Spark 2.1.0](http://spark.apache.org/docs/2.1.0/)
-+ [Jupyter Notebook 4.1](http://jupyter.org/install.html)
-+ BigDL 0.2.0(download [linux64](https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-2.1.1-scala-2.11.8-linux64/0.2.0/dist-spark-2.1.1-scala-2.11.8-linux64-0.2.0-dist.zip), [mac](https://oss.sonatype.org/content/groups/public/com/intel/analytics/bigdl/dist-spark-2.1.1-scala-2.11.8-mac/0.2.0/dist-spark-2.1.1-scala-2.11.8-mac-0.2.0-dist.zip))
++ Python 2.7
++ JDK 8
++ Apache Spark 2.1.0
++ Jupyter Notebook 4.1
++ BigDL 0.2.0
++ [Setup env on Mac OS](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupMac.md) / [Setup env on Linux](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupLinux.md)
 
 ### Start Jupyter Server
-
 * Download BigDL 0.2.0([linux64](https://repo1.maven.org/maven2/com/intel/analytics/bigdl/dist-spark-2.1.1-scala-2.11.8-linux64/0.2.0/dist-spark-2.1.1-scala-2.11.8-linux64-0.2.0-dist.zip), [mac](https://oss.sonatype.org/content/groups/public/com/intel/analytics/bigdl/dist-spark-2.1.1-scala-2.11.8-mac/0.2.0/dist-spark-2.1.1-scala-2.11.8-mac-0.2.0-dist.zip)) and unzip file.
-* Create start_notebook.sh, copy and paste the contents below. Edit SPARK_HOME as the folder where you download spark. Set BigDL_HOME to the folder where you unzip in last step. 
-```bash
-#!/bin/bash
+* Run ```export BIGDL_HOME=where is your unzipped bigdl folder```
+* Run ```export SPARK_HOME=where is your unpacked spark folder```
+* Run ```./start_notebook.sh```
 
-# setup pathes, please use absolute path
-SPARK_HOME= where the downloaded spark
-BigDL_HOME= where the downloaded file unzipped
-PYTHON_API_ZIP_PATH=${BigDL_HOME}/lib/bigdl-${VERSION}-python-api.zip
-export PYTHONPATH=${PYTHON_API_ZIP_PATH}:$PYTHONPATH
-export PYSPARK_DRIVER_PYTHON=jupyter
-export PYSPARK_DRIVER_PYTHON_OPTS="notebook --notebook-dir=./ --ip=* --no-browser"
-VERSION=0.2.0
-
-${SPARK_HOME}/bin/pyspark \
-  --master local[4] \
-  --driver-memory 4g \
-  --properties-file ${BigDL_HOME}/conf/spark-bigdl.conf \
-  --py-files ${PYTHON_API_ZIP_PATH} \
-  --jars ${BigDL_HOME}/lib/bigdl-SPARK_2.1-${VERSION}-jar-with-dependencies.jar \
-  --conf spark.driver.extraClassPath=${BigDL_HOME}/lib/bigdl-SPARK_2.1-${VERSION}-jar-with-dependencies.jar \
-  --conf spark.executor.extraClassPath=${BigDL_HOME}/lib/bigdl-SPARK_2.1-${VERSION}-jar-with-dependencies.jar
-```
-
-* Execute start_notebook.sh in bash, it will start a jupyter notebook service and output the url to access
 ## Run Demo
 * Open a browser - Suggest Chrome or Firefox or Safari
-* Access notebook client at address http://localhost:8888/?token=xxxx (which is in the output of the start_notebook.sh), open the example ipynb files and execute.
+* Access notebook client at address http://localhost:8888, open the example ipynb files and execute.
 
