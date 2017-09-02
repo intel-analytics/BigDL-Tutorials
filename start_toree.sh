@@ -27,7 +27,6 @@ if [ ! -f ${BIGDL_CONF} ]; then
 fi
 
 if [ ! -f ${BIGDL_PY_ZIP} ]; then
-    echo ${BIGDL_PY_ZIP}
     echo "Cannot find ${BIGDL_PY_ZIP}"
     exit 1
 fi
@@ -37,12 +36,8 @@ if [ ! -f $BIGDL_JAR ]; then
     exit 1
 fi
 
-${SPARK_HOME}/bin/pyspark \
-  --master local[4] \
-  --driver-memory 4g \
-  --properties-file ${BIGDL_CONF} \
-  --py-files ${BIGDL_PY_ZIP} \
-  --jars ${BIGDL_JAR} \
-  --conf spark.driver.extraClassPath=${BIGDL_JAR} \
-  --conf spark.executor.extraClassPath=${BIGDL_JAR} \
-  --conf spark.sql.catalogImplementation='in-memory'
+export SPARK_OPTS="--master local[4] --driver-memory 4g --properties-file ${BIGDL_CONF} --jars ${BIGDL_JAR} --conf spark.driver.extraClassPath=${BIGDL_JAR} --conf spark.executor.extraClassPath=${BIGDL_JAR} --conf spark.sql.catalogImplementation='in-memory'"
+
+echo 'Install toree to jupyter, this may need root privilege'
+sudo jupyter toree install --spark_home=${SPARK_HOME} --spark_opts='${SPARK_OPTS}'
+jupyter notebook --notebook-dir=./ --ip=* --no-browser --NotebookApp.token=''
