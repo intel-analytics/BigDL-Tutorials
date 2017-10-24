@@ -12,8 +12,9 @@ if [ -z "${SPARK_HOME}" ]; then
 fi
 
 #setup pathes
+export PORT="12345" 
 export PYSPARK_DRIVER_PYTHON=jupyter
-export PYSPARK_DRIVER_PYTHON_OPTS="notebook --notebook-dir=./ --ip=* --no-browser --NotebookApp.token=''"
+export PYSPARK_DRIVER_PYTHON_OPTS="notebook --notebook-dir=${NOTEBOOK_DIR} --ip=* --port=${PORT} --no-browser --NotebookApp.token='' --allow-root"
 export BIGDL_JAR_NAME=`ls ${BIGDL_HOME}/lib/ | grep jar-with-dependencies.jar`
 export BIGDL_JAR="${BIGDL_HOME}/lib/$BIGDL_JAR_NAME"
 export BIGDL_PY_ZIP_NAME=`ls ${BIGDL_HOME}/lib/ | grep python-api.zip`
