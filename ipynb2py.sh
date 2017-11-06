@@ -17,5 +17,6 @@ else
 
     mv $1.tmp.py $1.py
     sed -i '1i# -*- coding: utf-8 -*-' $1.py
+    sed -i '#!/usr/bin/python' $1.py
     rm $1.tmp.ipynb
 fi 
