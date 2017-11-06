@@ -6,7 +6,6 @@
 # Example:
 # ipynb2py notebooks/neural_networks/rnn
 #########################################
-
 if [ $# -ne "1" ]; then
     echo "Usage: ./nb2script <file-name without extension>"
 else
@@ -17,5 +16,6 @@ else
     jupyter nbconvert --to script $1.tmp.ipynb 
 
     mv $1.tmp.py $1.py
+    sed -i '1i# -*- coding: utf-8 -*-' $1.py
     rm $1.tmp.ipynb
 fi 
