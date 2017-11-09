@@ -6,9 +6,13 @@ This guide is mainly for Ubuntu. If you has other linux platform, please do the 
 
 ###  Installation Steps
 
-* Install Java and Spark
+* Install Java 
    * Install Jdk 8 from http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html#javasejdk
-   * Install Spark 2.1.0 from http://spark.apache.org/downloads.html
+   * Run the following steps
+```
+   export JAVA_HOME=where you unzip your jdk
+   export PATH=$PATH:$JAVA_HOME/bin
+```
 * Install Python dev env. Python2.7 is shipped with linux.
 ```
     sudo apt-get update
