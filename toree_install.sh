@@ -5,7 +5,6 @@ export BIGDL_PIP_HOME=`pip show BigDL | sed -n -e '/^Location/p' | sed 's/[^ ]* 
 export BIGDL_HOME=${BIGDL_PIP_HOME}/bigdl/share
 export PYSPARK_PIP_HOME=`pip show pyspark | sed -n -e '/^Location/p' | sed 's/[^ ]* //'`
 export SPARK_HOME=`python ${PYSPARK_PIP_HOME}/pyspark/find_spark_home.py`
-# export SPARK_HOME=${SPARK_PATH}/bin
 
 # Check installation of BigDL
 if [ -z "${BIGDL_HOME}" ]; then
@@ -25,9 +24,7 @@ export BIGDL_JAR=${BIGDL_HOME}/lib/${BIGDL_JAR_NAME}
 export BIGDL_PY_ZIP_NAME=`ls ${BIGDL_HOME}/lib/ | grep python-api.zip`
 export BIGDL_PY_ZIP=${BIGDL_HOME}/lib/${BIGDL_PY_ZIP_NAME}
 export BIGDL_CONF=${BIGDL_HOME}/conf/spark-bigdl.conf
-echo ${BIGDL_JAR}
-echo ${BIGDL_PY_ZIP}
-echo ${BIGDL_CONF}
+
 # Check files
 if [ ! -f ${BIGDL_JAR} ]; then
     echo "Cannot find ${BIGDL_JAR}!"
