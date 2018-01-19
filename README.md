@@ -28,9 +28,9 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 
 ### Start Jupyter Server with PySpark
 * You can just clone the repo, cd into it and run our prepared *start_notebook.sh* script 
-    
+    ```
     bash start_notebook.sh
-
+    ```
 
 ## Run Demo
 * Open a browser - Suggest Chrome or Firefox or Safari
