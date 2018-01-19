@@ -26,9 +26,11 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 + BigDL 0.3.0
 + [Setup env on Mac OS](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupMac.md) / [Setup env on Linux](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupLinux.md)
 
-### Start Jupyter Server
-* Run ```pip install BigDL==0.3.0```
-* Run ``` jupyter notebook --notebook-dir=./ --ip=* --no-browser```
+### Start Jupyter Server with PySpark
+* You can just clone the repo, cd into it and run our prepared *start_notebook.sh* script 
+    
+    bash start_notebook.sh
+
 
 ## Run Demo
 * Open a browser - Suggest Chrome or Firefox or Safari
