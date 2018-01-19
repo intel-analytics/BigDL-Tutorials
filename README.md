@@ -26,8 +26,30 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 + BigDL 0.3.0
 + [Setup env on Mac OS](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupMac.md) / [Setup env on Linux](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupLinux.md)
 
-### Start Jupyter Server with PySpark
-* You can just clone the repo, cd into it and run our prepared *start_notebook.sh* script 
+### Start Jupyter Server
+* You can use pip install BigDL, it will install latest official release version
+    ```
+    pip install BigDL
+    ```
+    then start Jupyter sever
+    ```
+    jupyter notebook --notebook-dir=./ --ip=* --no-browser
+    ```
+* If you want to use different BigDL version, you can download prebuild BigDL binary from https://bigdl-project.github.io/master/#release-download/
+    or you can also download source code and build it yourself, more information please refer https://bigdl-project.github.io/master/#ScalaUserGuide/install-build-src/
+
+   Set BIGDL_HOME variable
+    ```
+    export BIGDL_HOME="Downloaded BigDL located directory"
+    ```
+
+   The please prepare Apache Spark enviroment, dowload Spark from http://spark.apache.org/downloads.html
+
+   Set SPARK_HOME variable
+    ```
+    export SPARK_HOME="Downloaded Spark located directory"
+    ```
+   Use prepared *start_notebook.sh* to start jupyter server
     ```
     bash start_notebook.sh
     ```
@@ -35,6 +57,3 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 ## Run Demo
 * Open a browser - Suggest Chrome or Firefox or Safari
 * Access notebook client at address http://localhost:8888, open the example ipynb files and execute.
-
-## Note
-* This notebook is for BigDL 0.3.0. Please refer branch-0.2 if you need to use BigDL 0.2.0.
