@@ -35,4 +35,4 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 * Access notebook client at address http://localhost:8888, open the example ipynb files and execute.
 
 ## Note
-* This notebook is for BigDL 0.3.0. Please refer branch-0.2 if you need to use BigDL 0.2.0.
+* This notebook is for BigDL 0.4.0. Please refer corresponding branch if you need to use other versions of BigDL.
