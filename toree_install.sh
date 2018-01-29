@@ -1,20 +1,37 @@
 #!/bin/bash
 
+# Required BigDL and Spark version
+export BIGDL_VERSION=0.4.0
+export SPARK_VERSION=2.2.1
+
 # Find the path of BigDL and Spark
 export BIGDL_PIP_HOME=`pip show BigDL | sed -n -e '/^Location/p' | sed 's/[^ ]* //'`
 export BIGDL_HOME=${BIGDL_PIP_HOME}/bigdl/share
 export PYSPARK_PIP_HOME=`pip show pyspark | sed -n -e '/^Location/p' | sed 's/[^ ]* //'`
-export SPARK_HOME=`python ${PYSPARK_PIP_HOME}/pyspark/find_spark_home.py`
+export SPARK_HOME=${PYSPARK_PIP_HOME}/pyspark
 
 # Check installation of BigDL
 if [ -z "${BIGDL_HOME}" ]; then
-	echo "Please install BigDL correctly!"
+	echo "Cannot find BigDL installation directory. Have you run 'pip install BigDL=${BIGDL_VERSION}'?"
 	exit 1
 fi
 
 # Check installation of Spark
 if [ -z "${SPARK_HOME}" ]; then
-	echo "Please set install Spark correctly!"
+	echo "Cannot find Spark installation directory. Have you run 'pip install BigDL=${BIGDL_VERSION}'?"
+	exit 1
+fi
+
+# Check the version BigDL and Spark
+export BIGDL_TEMP_VERSION=`pip show BigDL | sed -n -e '/^Version/p' | sed 's/[^ ]* //'`
+if [ "${BIGDL_VERSION}" != "${BIGDL_TEMP_VERSION}" ]; then
+	echo "Wrong version of BigDL. Please run 'pip install BigDL=${BIGDL_VERSION}'."
+	exit 1
+fi
+
+export SPARK_TEMP_VERSION=`pip show pyspark | sed -n -e '/^Version/p' | sed 's/[^ ]* //'`
+if [ "${SPARK_VERSION}" != "${SPARK_TEMP_VERSION}" ]; then
+        echo "Wrong version of Spark. Please run 'pip install BigDL=${BIGDL_VERSION}'."
 	exit 1
 fi
 
