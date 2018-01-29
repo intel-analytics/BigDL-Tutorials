@@ -23,11 +23,11 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 + JDK 8
 + Apache Spark 2.2.0
 + Jupyter Notebook 4.1
-+ BigDL 0.3.0
++ BigDL 0.4.0
 + [Setup env on Mac OS](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupMac.md) / [Setup env on Linux](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupLinux.md)
 
 ### Start Jupyter Server
-* Run ```pip install BigDL==0.3.0```
+* Run ```pip install BigDL==0.4.0```
 * Run ``` jupyter notebook --notebook-dir=./ --ip=* --no-browser```
 
 ## Run Demo
