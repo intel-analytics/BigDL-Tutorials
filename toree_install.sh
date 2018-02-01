@@ -65,13 +65,7 @@ if [ ! -z "{http_proxy}" ]; then
    HTTP_PROXY_HOST=${HTTP_PROXY_NAME%%:*}
 fi
 
-if [ ! -z "{https_proxy}" ]; then
-   HTTPS_PROXY_PORT=${https_proxy##*:}
-   HTTPS_PROXY_NAME=${https_proxy##*/}
-   HTTPS_PROXY_HOST=${HTTPS_PROXY_NAME%%:*}
-fi
-
-export SPARK_OPTS="--master local[4] --driver-memory 4g --properties-file ${BIGDL_CONF} --jars ${BIGDL_JAR} --conf spark.driver.extraClassPath=${BIGDL_JAR} --conf spark.executor.extraClassPath=${BIGDL_JAR} --conf spark.sql.catalogImplementation='in-memory' --driver-java-options='-Dhttp.proxyHost=${HTTP_PROXY_HOST} -Dhttp.proxyPort=${HTTP_PROXY_PORT} -Dhttps.proxyHost=${HTTPS_PROXY_HOST} -Dhttps.proxyPort=${HTTPS_PROXY_PORT}'"
+export SPARK_OPTS="--master local[4] --driver-memory 4g --properties-file ${BIGDL_CONF} --jars ${BIGDL_JAR} --conf spark.driver.extraClassPath=${BIGDL_JAR} --conf spark.executor.extraClassPath=${BIGDL_JAR} --conf spark.sql.catalogImplementation='in-memory' --driver-java-options='-Dhttp.proxyHost=${HTTP_PROXY_HOST} -Dhttp.proxyPort=${HTTP_PROXY_PORT}'"
 
 # Install Toree
 jupyter toree install --interpreters=Scala,PySpark --spark_home=${SPARK_HOME} --spark_opts="${SPARK_OPTS}"
