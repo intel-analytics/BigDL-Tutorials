@@ -1,6 +1,6 @@
-# Deep Leaning Tutorials on Apache Spark using BigDL
+# Deep Learning Tutorials on Apache Spark using BigDL
 
-Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github.com/intel-analytics/BigDL/). The tutorials are inspired by [Apache Spark examples](http://spark.apache.org/examples.html), the [Theano Tutorials](https://github.com/Newmu/Theano-Tutorials) and the [Tensorflow tutorials](https://github.com/nlintz/TensorFlow-Tutorials).
+Step-by-step Deep Learning Tutorials on Apache Spark using [BigDL](https://github.com/intel-analytics/BigDL/). The tutorials are inspired by [Apache Spark examples](http://spark.apache.org/examples.html), the [Theano Tutorials](https://github.com/Newmu/Theano-Tutorials) and the [Tensorflow tutorials](https://github.com/nlintz/TensorFlow-Tutorials).
 
 ### Topics
 1. [RDD](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/spark_basics/RDD.ipynb) 
@@ -28,7 +28,13 @@ Step-by-step Deep Leaning Tutorials on Apache Spark using [BigDL](https://github
 
 ### Start Jupyter Server
 * Run ```pip install BigDL==0.4.0```
-* Run ``` jupyter notebook --notebook-dir=./ --ip=* --no-browser```
+* Run ```jupyter notebook --notebook-dir=./ --ip=* --no-browser```
+
+### Start Toree Kernel to Run Scala Notebooks
+* Run ```pip install BigDL==0.4.0```
+* Run ```pip install https://dist.apache.org/repos/dist/dev/incubator/toree/0.2.0/snapshots/dev1/toree-pip/toree-0.2.0.dev1.tar.gz```
+* Run ```./toree_install.sh```
+* Run ```jupyter notebook --notebook-dir=./ --ip=* --no-browser```
 
 ## Run Demo
 * Open a browser - Suggest Chrome or Firefox or Safari
