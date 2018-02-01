@@ -12,26 +12,26 @@ export SPARK_HOME=${PYSPARK_PIP_HOME}/pyspark
 
 # Check installation of BigDL
 if [ -z "${BIGDL_HOME}" ]; then
-	echo "Cannot find BigDL installation directory. Have you run 'pip install BigDL=${BIGDL_VERSION}'?"
+	echo "Cannot find BigDL installation directory. Have you run 'pip install BigDL==${BIGDL_VERSION}'?"
 	exit 1
 fi
 
 # Check installation of Spark
 if [ -z "${SPARK_HOME}" ]; then
-	echo "Cannot find Spark installation directory. Have you run 'pip install BigDL=${BIGDL_VERSION}'?"
+	echo "Cannot find Spark installation directory. Have you run 'pip install BigDL==${BIGDL_VERSION}'?"
 	exit 1
 fi
 
 # Check the version BigDL and Spark
 export BIGDL_TEMP_VERSION=`pip show BigDL | sed -n -e '/^Version/p' | sed 's/[^ ]* //'`
 if [ "${BIGDL_VERSION}" != "${BIGDL_TEMP_VERSION}" ]; then
-	echo "Wrong version of BigDL. Please run 'pip install BigDL=${BIGDL_VERSION}'."
+	echo "Wrong version of BigDL. Please run 'pip install BigDL==${BIGDL_VERSION}'."
 	exit 1
 fi
 
 export SPARK_TEMP_VERSION=`pip show pyspark | sed -n -e '/^Version/p' | sed 's/[^ ]* //'`
 if [ "${SPARK_VERSION}" != "${SPARK_TEMP_VERSION}" ]; then
-        echo "Wrong version of Spark. Please run 'pip install BigDL=${BIGDL_VERSION}'."
+        echo "Wrong version of Spark. Please run 'pip install BigDL==${BIGDL_VERSION}'."
 	exit 1
 fi
 
@@ -58,8 +58,20 @@ if [ ! -f ${BIGDL_CONF} ]; then
     exit 1
 fi
 
-# Configure Spark
-export SPARK_OPTS="--master local[4] --driver-memory 4g --properties-file ${BIGDL_CONF} --jars ${BIGDL_JAR} --conf spark.driver.extraClassPath=${BIGDL_JAR} --conf spark.executor.extraClassPath=${BIGDL_JAR} --conf spark.sql.catalogImplementation='in-memory'"
+# Configure proxy and Spark
+if [ ! -z "{HTTP_PROXY}" ]; then
+   HTTP_PROXY_PORT=${HTTP_PROXY##*:}
+   HTTP_PROXY_NAME=${HTTP_PROXY##*/}
+   HTTP_PROXY_HOST=${HTTP_PROXY_NAME%%:*}
+fi
+
+if [ ! -z "{HTTPS_PROXY}" ]; then
+   HTTPS_PROXY_PORT=${HTTPS_PROXY##*:}
+   HTTPS_PROXY_NAME=${HTTPS_PROXY##*/}
+   HTTPS_PROXY_HOST=${HTTPS_PROXY_NAME%%:*}
+fi
+
+export SPARK_OPTS="--master local[4] --driver-memory 4g --properties-file ${BIGDL_CONF} --jars ${BIGDL_JAR} --conf spark.driver.extraClassPath=${BIGDL_JAR} --conf spark.executor.extraClassPath=${BIGDL_JAR} --conf spark.sql.catalogImplementation='in-memory' --driver-java-options='-Dhttp.proxyHost=${HTTP_PROXY_HOST} -Dhttp.proxyPort=${HTTP_PROXY_PORT} -Dhttps.proxyHost=${HTTPS_PROXY_HOST} -Dhttps.proxyPort=${HTTPS_PROXY_PORT}'"
 
 # Install Toree
-jupyter toree install --interpreters=Scala,PySpark --spark_home=${SPARK_HOME} --spark_opts='${SPARK_OPTS}'
+jupyter toree install --interpreters=Scala,PySpark --spark_home=${SPARK_HOME} --spark_opts="${SPARK_OPTS}"
