@@ -59,15 +59,15 @@ if [ ! -f ${BIGDL_CONF} ]; then
 fi
 
 # Configure proxy and Spark
-if [ ! -z "{HTTP_PROXY}" ]; then
-   HTTP_PROXY_PORT=${HTTP_PROXY##*:}
-   HTTP_PROXY_NAME=${HTTP_PROXY##*/}
+if [ ! -z "{http_proxy}" ]; then
+   HTTP_PROXY_PORT=${http_proxy##*:}
+   HTTP_PROXY_NAME=${http_proxy##*/}
    HTTP_PROXY_HOST=${HTTP_PROXY_NAME%%:*}
 fi
 
-if [ ! -z "{HTTPS_PROXY}" ]; then
-   HTTPS_PROXY_PORT=${HTTPS_PROXY##*:}
-   HTTPS_PROXY_NAME=${HTTPS_PROXY##*/}
+if [ ! -z "{https_proxy}" ]; then
+   HTTPS_PROXY_PORT=${https_proxy##*:}
+   HTTPS_PROXY_NAME=${https_proxy##*/}
    HTTPS_PROXY_HOST=${HTTPS_PROXY_NAME%%:*}
 fi
 
