@@ -23,15 +23,15 @@ Step-by-step Deep Learning Tutorials on Apache Spark using [BigDL](https://githu
 + JDK 8
 + Apache Spark 2.2.0
 + Jupyter Notebook 4.1
-+ BigDL 0.4.0
++ BigDL 0.5.0
 + [Setup env on Mac OS](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupMac.md) / [Setup env on Linux](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/SetupLinux.md)
 
 ### Start Jupyter Server
-* Run ```pip install BigDL==0.4.0```
+* Run ```pip install BigDL==0.5.0```
 * Run ```jupyter notebook --notebook-dir=./ --ip=* --no-browser```
 
 ### Start Toree Kernel to Run Scala Notebooks
-* Run ```pip install BigDL==0.4.0```
+* Run ```pip install BigDL==0.5.0```
 * Run ```pip install https://dist.apache.org/repos/dist/dev/incubator/toree/0.2.0/snapshots/dev1/toree-pip/toree-0.2.0.dev1.tar.gz```
 * Run ```./toree_install.sh```
 * Run ```jupyter notebook --notebook-dir=./ --ip=* --no-browser```
@@ -40,5 +40,3 @@ Step-by-step Deep Learning Tutorials on Apache Spark using [BigDL](https://githu
 * Open a browser - Suggest Chrome or Firefox or Safari
 * Access notebook client at address http://localhost:8888, open the example ipynb files and execute.
 
-## Note
-* This notebook is for BigDL 0.4.0. Please refer branch-0.3 if you need to use BigDL 0.3.0.
