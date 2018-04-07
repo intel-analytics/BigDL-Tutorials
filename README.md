@@ -3,20 +3,20 @@
 Step-by-step Deep Learning Tutorials on Apache Spark using [BigDL](https://github.com/intel-analytics/BigDL/). The tutorials are inspired by [Apache Spark examples](http://spark.apache.org/examples.html), the [Theano Tutorials](https://github.com/Newmu/Theano-Tutorials) and the [Tensorflow tutorials](https://github.com/nlintz/TensorFlow-Tutorials).
 
 ### Topics
-1. [RDD](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/spark_basics/RDD.ipynb) 
-2. [DataFrame](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/spark_basics/DataFrame.ipynb)
-3. [SparkSQL](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/spark_basics/spark_sql.ipynb)
-4. [StructureStreaming](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/spark_basics/structured_streaming.ipynb)
-5. [Forward and backward](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/forward_and_backward.ipynb)
-6. [Linear Regression](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/linear_regression.ipynb)
-7. [Introduction to MNIST](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/introduction_to_mnist.ipynb)
-8. [Logistic Regression](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/logistic_regression.ipynb)
-9. [Feedforward Neural Network](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/deep_feed_forward_neural_network.ipynb)
-10. [Convolutional Neural Network](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/cnn.ipynb)
-11. [Recurrent Neural Network](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/rnn.ipynb)
-12. [LSTM](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/lstm.ipynb)
-13. [Bi-directional RNN](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/birnn.ipynb)
-14. [Auto-encoder](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/autoencoder.ipynb)
+1. RDD [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/spark_basics/RDD.ipynb)]
+2. DataFrame [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/spark_basics/DataFrame.ipynb)]
+3. SparkSQL [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/spark_basics/spark_sql.ipynb)]
+4. StructureStreaming [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/spark_basics/structured_streaming.ipynb)]
+5. Forward and backward [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/neural_networks/forward_and_backward.ipynb)]
+6. Linear Regression [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/neural_networks/linear_regression.ipynb) | [Scala](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/scala/neural_networks/linear_regression.ipynb)]
+7. Introduction to MNIST [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/neural_networks/introduction_to_mnist.ipynb) | [Scala](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/scala/neural_networks/introduction_to_mnist.ipynb)]
+8. Logistic Regression [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/neural_networks/logistic_regression.ipynb) | [Scala](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/scala/neural_networks/logistic_regression.ipynb)]
+9. Feedforward Neural Network [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/neural_networks/deep_feed_forward_neural_network.ipynb)]
+10. Convolutional Neural Network [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/neural_networks/cnn.ipynb)]
+11. Recurrent Neural Network [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/neural_networks/rnn.ipynb)]
+12. LSTM [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/neural_networks/lstm.ipynb)]
+13. Bi-directional RNN [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/neural_networks/birnn.ipynb)]
+14. Auto-encoder [[Python](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/python/neural_networks/autoencoder.ipynb)]
 
 ### Environment
 + Python 2.7
