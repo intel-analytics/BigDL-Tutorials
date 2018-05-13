@@ -8,10 +8,10 @@ BigDL-Keras style.
 
 ### Topics:
 
-1. [Linear Regression from Scratch](keras/supervised_learning/Linear-Regression-Scratch.ipynb)
-2. [Linear Regression with BigDL Keras](keras/supervised_learning/Linear-Regression-With-BigDL-Keras.ipynb)
-3. [Convolutional Neural Networks with BigDL Keras](keras/convolutional_neural_networks/Convolutional-Neural-Networks-With-BigDL-Keras.ipynb)
-4. [Recurrent Neural Networks with BigDL keras](keras/recurrent_neural_networks/Recurrent-Neural-Network-with-BigDL-Keras.ipynb)
+1. [Linear Regression from Scratch](supervised_learning/Linear-Regression-Scratch.ipynb)
+2. [Linear Regression with BigDL Keras](supervised_learning/Linear-Regression-With-BigDL-Keras.ipynb)
+3. [Convolutional Neural Networks with BigDL Keras](convolutional_neural_networks/Convolutional-Neural-Networks-With-BigDL-Keras.ipynb)
+4. [Recurrent Neural Networks with BigDL keras](recurrent_neural_networks/Recurrent-Neural-Network-with-BigDL-Keras.ipynb)
 
 ### Environment:
-Same in the [README](README.md) in the main directory
+Same in the [README](../README.md) in the main directory
