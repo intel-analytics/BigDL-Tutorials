@@ -7,8 +7,12 @@
 # ipynb2py notebooks/neural_networks/rnn
 #########################################
 if [ $# -ne "1" ]; then
-    echo "Usage: ./nb2script <file-name without extension>"
+    echo "Usage: $0 <file-name without extension>"
 else
+    if [ ! -f $1.ipynb ]; then
+	    echo "No existed $1.ipynb"
+	    exit 1
+    fi
     cp $1.ipynb $1.tmp.ipynb
     sed -i 's/%%/#/' $1.tmp.ipynb
     sed -i 's/%pylab/#/' $1.tmp.ipynb
