@@ -67,4 +67,4 @@ export SPARK_OPTS="--master local[4] --driver-memory 4g --properties-file ${BIGD
 
 # Install Toree
 echo "Install Toree"
-jupyter toree install --interpreters=Scala,PySpark --spark_home=${SPARK_HOME} --spark_opts="${SPARK_OPTS}"
+jupyter toree install --interpreters=Scala,PySpark --spark_home=${SPARK_HOME} --spark_opts="${SPARK_OPTS}" --user
