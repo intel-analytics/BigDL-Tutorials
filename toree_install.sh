@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Required BigDL and Spark version
-export BIGDL_VERSION=0.4.0
+export BIGDL_VERSION=0.7.0
 export SPARK_VERSION=2.2.1
 
 # Find the path of BigDL and Spark
@@ -9,6 +9,10 @@ export BIGDL_PIP_HOME=`pip show BigDL | sed -n -e '/^Location/p' | sed 's/[^ ]* 
 export BIGDL_HOME=${BIGDL_PIP_HOME}/bigdl/share
 export PYSPARK_PIP_HOME=`pip show pyspark | sed -n -e '/^Location/p' | sed 's/[^ ]* //'`
 export SPARK_HOME=${PYSPARK_PIP_HOME}/pyspark
+
+function version_gt() {
+	test "$(printf '%s\n' "$@" | sort -V | head -n 1)" != "$1";
+}
 
 # Check installation of BigDL
 if [ -z "${BIGDL_HOME}" ]; then
@@ -25,13 +29,13 @@ fi
 # Check the version BigDL and Spark
 export BIGDL_TEMP_VERSION=`pip show BigDL | sed -n -e '/^Version/p' | sed 's/[^ ]* //'`
 if [ "${BIGDL_VERSION}" != "${BIGDL_TEMP_VERSION}" ]; then
-	echo "Wrong version of BigDL. Please run 'pip install BigDL==${BIGDL_VERSION}'."
+	echo "Wrong version of BigDL=${BIGDL_TEMP_VERSION}. Please run 'pip install BigDL==${BIGDL_VERSION}'."
 	exit 1
 fi
 
 export SPARK_TEMP_VERSION=`pip show pyspark | sed -n -e '/^Version/p' | sed 's/[^ ]* //'`
-if [ "${SPARK_VERSION}" != "${SPARK_TEMP_VERSION}" ]; then
-        echo "Wrong version of Spark. Please run 'pip install BigDL==${BIGDL_VERSION}'."
+if version_gt "${SPARK_VERSION}"  "${SPARK_TEMP_VERSION}" ; then
+        echo "Wrong version of Spark=${SPARK_TEMP_VERSION}. Expect ${SPARK_VERSION}. Please run 'pip install BigDL==${BIGDL_VERSION}' or 'pip install pyspark==${SPARK_VERSION}'."
 	exit 1
 fi
 
@@ -62,4 +66,5 @@ fi
 export SPARK_OPTS="--master local[4] --driver-memory 4g --properties-file ${BIGDL_CONF} --jars ${BIGDL_JAR} --conf spark.driver.extraClassPath=${BIGDL_JAR} --conf spark.executor.extraClassPath=${BIGDL_JAR} --conf spark.sql.catalogImplementation='in-memory'"
 
 # Install Toree
-jupyter toree install --interpreters=Scala,PySpark --spark_home=${SPARK_HOME} --spark_opts="${SPARK_OPTS}"
+echo "Install Toree"
+jupyter toree install --interpreters=Scala,PySpark --spark_home=${SPARK_HOME} --spark_opts="${SPARK_OPTS}" --user

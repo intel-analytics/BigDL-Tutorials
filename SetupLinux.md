@@ -16,6 +16,7 @@ This guide is mainly for Ubuntu. If you has other linux platform, please do the 
 * Install Python dev env. Python2.7 is shipped with linux.
 ```
     sudo apt-get update
+    sudo apt-get install build-essential
     sudo apt-get install -y python-setuptools python-dev
 ```
 * Instal pip - the package manager for python
