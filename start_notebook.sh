@@ -3,15 +3,11 @@ echo "Note: This script will startup pyspark with jupyter nootbook"
 # Check environment variables
 if [ -z "${BIGDL_HOME}" ]; then
     echo "Please set BIGDL_HOME environment variable"
-    echo "For example:"
-    echo "  export BIGDL_HOME=/path/to/python2.7/site-packages/bigdl/share"
     exit 1
 fi
 
 if [ -z "${SPARK_HOME}" ]; then
     echo "Please set SPARK_HOME environment variable"
-    echo "For example:"
-    echo " export SPARK_HOME=/path/to/python2.7/site-packages/pyspark"
     exit 1
 fi
 
