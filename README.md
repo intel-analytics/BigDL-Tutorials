@@ -20,7 +20,7 @@ Step-by-step Deep Learning Tutorials on Apache Spark using [BigDL](https://githu
 15. [Visualizing Learning](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/visualization.ipynb)
 
 ### Environment
-+ Python 2.7
++ Python 2.7/Python 3.5/Python 3.6
 + JDK 8
 + Apache Spark >= 2.2.1
 + Jupyter Notebook 4.1
