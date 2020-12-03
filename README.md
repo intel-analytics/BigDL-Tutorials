@@ -17,7 +17,7 @@ Step-by-step Deep Learning Tutorials on Apache Spark using [BigDL](https://githu
 12. [LSTM](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/lstm.ipynb)
 13. [Bi-directional RNN](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/birnn.ipynb)
 14. [Auto-encoder](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/autoencoder.ipynb)
-15. [Visualizing Learning](https://github.com/intel-analytics/BigDL-Tutorials/blob/master/notebooks/neural_networks/visualization.ipynb)
+15. [Visualizing Learning](https://github.com/vincenzosantopietro/BigDL-Tutorials/blob/master/notebooks/bigdl_features/visualization.ipynb)
 
 ### Environment
 + Python 3.5/3.6
